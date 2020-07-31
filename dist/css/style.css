@@ -47,18 +47,18 @@ body {
 .container {
   max-width: 75rem;
   margin: 3rem auto;
+  margin-top: 10px;
   background-color: rgba(250,241,245, 0.3);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
   display: grid;
-  grid-template-rows: 10rem minmax(35rem, auto);
+  grid-template-rows: 10rem minmax(43rem, auto);
   grid-template-areas: "head" "list" "advice"; }
   @media only screen and (max-width: 68.75em) {
     .container {
       width: 100%;
-      margin: 0;
-      border-radius: 4px; } }
+      border-radius: 12px; } }
 
 .header {
   grid-area: head;
@@ -104,14 +104,9 @@ body {
     height: 4.5rem;
 }
 
-.search-div {
-    
-}
-
 .search-btn {
     background-color: transparent;
     border: none;
-    /*border-top-right-radius: 10px;*/
     border-radius: 50%;
     transition: 350ms ease-in-out;
 }
@@ -122,21 +117,59 @@ body {
 
 }
 
+/*RESULTS AREA OF CONTAINER*/
+
+.results {
+
+  grid-area: list;
+  background-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60rem;
+
+}
+  .results__list {
+    list-style: none;
+  } .results__link {
+    padding: 1rem;
+    transition: all .3s;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+    border-bottom-color: aliceblue;
+
+  } 
+    .results__link a {
+      text-decoration: none;
+      color: whitesmoke;
+    }
+    .results__link a:link, results__link a:visited {
+      text-decoration: none;
+      color: whitesmoke;
+    }
+    .results-clearfix {
+      margin: auto;
+      width: 4.5rem;
+      height: inherit;
+    }
+
+
 
 /*BOTTOM SECTION OF THE PAGE*/
 
 .copyright {
   color: whitesmoke;
   font-size: 1.2rem;
-  margin-left: 0.25rem}
+  margin-left: 0.25rem
+}
 
 .link:link,
 .link:visited {
-  color: whitesmoke; }
+  color: whitesmoke; 
+}
 
 footer {
-    position:fixed;bottom:0;
-
+    position:fixed;
+    bottom:0;
     width:100%;
     display:block;
 }
