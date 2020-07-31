@@ -1,0 +1,19 @@
+{
+  "name": "advisify",
+  "version": "1.0.0",
+  "description": "JS personal project outlining an advice search web application involving API requests and use of ES6.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antalandra/Advisify.git"
+  },
+  "author": "Andra Antal-Berbecaru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antalandra/Advisify/issues"
+  },
+  "homepage": "https://github.com/antalandra/Advisify#readme"
+}
