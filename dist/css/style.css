@@ -174,7 +174,31 @@ body {
     }
     .results__link--active {
       background-color: rgba(250,241,245, 0.4);
+    }
+    .results__arrows {
+      
+      
+    }
+    .results__arrow-button {
+      background-color: transparent;
+      border: none;
+      border-radius: 50%;
+      transition: 350ms ease-in-out;
+      cursor: pointer;
+    }
 
+    .results__arrow-button:visited, .results__arrow-button:focus, .results__arrow-button:hover {
+      outline: none;
+      background-color: rgba(250,241,245, 0.4);
+    }
+    .results__arrows--left {
+      position: fixed;
+      display: block;
+
+    }
+    .results__arrows img {
+      height: 1.5rem;
+      width: 1.5rem;
     }
     .results-clearfix {
       margin: auto;
