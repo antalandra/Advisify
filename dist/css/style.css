@@ -169,6 +169,13 @@ body {
       text-decoration: none;
       color: whitesmoke;
     }
+    .results__link:hover {
+      background-color: rgba(250,241,245, 0.4);
+    }
+    .results__link--active {
+      background-color: rgba(250,241,245, 0.4);
+
+    }
     .results-clearfix {
       margin: auto;
       width: 4.5rem;
