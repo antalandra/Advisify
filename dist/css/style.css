@@ -162,6 +162,18 @@ body {
     .results__link--active {
       background-color: rgba(250,241,245, 0.4);
     }
+    .results__data {
+    } .results__data h2 {
+      width: 55rem;
+    } 
+    .results__data--heart {
+      grid-area: "heart-icon";
+      width: 2rem;
+      height: 2rem;
+      }.results__data--heart img {
+        width: 2rem;
+        height: 2rem;
+      }
     /*RESULT LIST ARROWS*/
     .results__arrow--div{
       width: 1.5rem;
@@ -213,9 +225,26 @@ body {
   font-size: 3rem;
   text-align: center;
 } .advice p {
-  margin: 3vw 0;
+  margin: 0.5vw 0;
   color: whitesmoke;
 
+}
+.advice__button {
+  
+
+  } .advice--btns {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    
+  } .advice--btns:hover, .advice--btns:focus, .advice--btns:visited{
+    outline: none;
+  } 
+  .advice--btns img {
+    width: 2rem;
+    height: 2rem;
 }
 
 
