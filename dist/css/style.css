@@ -143,14 +143,14 @@ body {
 
 /*API RESULTS*/
 .results {
-
+  position: relative;
+  z-index: 9;
   grid-area: list;
   background-color: transparent;
   margin-left: auto;
   margin-right: auto;
   width: 60rem;
-
-}
+}/*API REQUEST RESULT ITEMS*/
   .results__list {
     list-style: none;
   } .results__link {
@@ -159,46 +159,47 @@ body {
     border-bottom-width: thin;
     border-bottom-style: solid;
     border-bottom-color: aliceblue;
-
-  } 
-    .results__link a {
+  } .results__link a {
       text-decoration: none;
       color: whitesmoke;
-    }
-    .results__link a:link, results__link a:visited {
+    }.results__link a:link, results__link a:visited {
       text-decoration: none;
       color: whitesmoke;
-    }
-    .results__link:hover {
+    }.results__link:hover {
       background-color: rgba(250,241,245, 0.4);
     }
     .results__link--active {
       background-color: rgba(250,241,245, 0.4);
     }
-    .results__arrows {
-      
-      
+    /*RESULT LIST ARROWS*/
+    .results__arrow--div{
+      width: 1.5rem;
     }
-    .results__arrow-button {
+    .results__arrow--button {
       background-color: transparent;
       border: none;
-      border-radius: 50%;
+      border-radius: 3rem;
       transition: 350ms ease-in-out;
       cursor: pointer;
-    }
-
-    .results__arrow-button:visited, .results__arrow-button:focus, .results__arrow-button:hover {
+    }.results__arrow--button:visited, .results__arrow--button:focus {
       outline: none;
-      background-color: rgba(250,241,245, 0.4);
+    }.results__arrow--button:hover {
+      background-color: rgba(250,241,245, 0.4); 
     }
-    .results__arrows--left {
-      position: fixed;
-      display: block;
 
+    .results__arrow--left {
+      position: absolute;
+      margin-left: -3.5rem;
+      margin-top: 11rem;
     }
-    .results__arrows img {
+    .results__arrow--right{
+      position: absolute;
+      margin-top: 11rem;
+      margin-left: 62.2rem;
+    }.results__arrow--left img, .results__arrow--right img {
       height: 1.5rem;
       width: 1.5rem;
+      
     }
     .results-clearfix {
       margin: auto;
