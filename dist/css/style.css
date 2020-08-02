@@ -47,14 +47,13 @@ body {
 /*CONTENT CONTAINER*/
 .container {
   max-width: 75rem;
-  margin: 3rem auto;
-  margin-top: 10px;
+  margin: 10px auto 3rem;
   background-color: rgba(250,241,245, 0.3);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
   display: grid;
-  grid-template-rows: 10rem minmax(43rem, auto);
+  grid-template-rows: 10rem 23rem 20rem;
   grid-template-areas: "head" "list" "advice"; }
   @media only screen and (max-width: 68.75em) {
     .container {
@@ -203,12 +202,18 @@ body {
 /*ADVICE ELEMENT*/
 .advice {
   grid-area: advice;
-  text-align: center;
+  margin: 0 auto 3rem;
+  padding: 0 1vw;
+  width: 60rem;
+  border-bottom-width: thin;
+  border-bottom-style: solid;
+  border-bottom-color: aliceblue;
   font-family: 'Dosis', sans-serif;
-  font-weight: 200;
-  width: 100%;
-  font-size: 2rem;
+  font-weight: 400;
+  font-size: 3rem;
+  text-align: center;
 } .advice p {
+  margin: 3vw 0;
   color: whitesmoke;
 
 }
