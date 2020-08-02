@@ -27,6 +27,8 @@ body {
    }
 
 
+  
+/*'LOOKING FOR ADVICE?' TITLE*/
 .page-title {
     font-family: 'Dosis', sans-serif;
     font-weight: 200;
@@ -38,12 +40,11 @@ body {
         text-align: start;
         line-height:51px;
         vertical-align:middle;
-    }
-}
-.page-title h {
+    }}.page-title h {
     margin: auto;
 }
 
+/*CONTENT CONTAINER*/
 .container {
   max-width: 75rem;
   margin: 3rem auto;
@@ -67,8 +68,6 @@ body {
   justify-content: space-between; }
 
 .search {
-  /*background-color: #fff;
-  border-radius: 10rem;*/
   display: flex;
   align-items: center;
   padding-left: 1.2rem;
@@ -98,20 +97,16 @@ body {
         height: 1.5rem;
         width: 1.5rem;
         /*fill: currentColor;*/ }
-
       .search-clearfix {
           margin-left: auto;
           height: 4.5rem;
       }
-
       .search-btn {
           background-color: transparent;
           border: none;
           border-radius: 50%;
           transition: 350ms ease-in-out;
-      }
-
-      .search-btn:hover, .search-btn:focus {
+      }.search-btn:hover, .search-btn:focus {
           outline: none;
           background-color: rgba(250,241,245, 0.4);
 
@@ -126,13 +121,11 @@ body {
   padding-top: 12rem;
   text-align: center;
   
-}
-  .loader img{
+}.loader img{
     transform-origin: 44% 50%;
     animation: rotate 2s infinite linear;
     width: 20%;
   }
-
   @keyframes rotate {
     0% {
       transform: rotate(0); }
@@ -143,13 +136,12 @@ body {
 
 /*API RESULTS*/
 .results {
-  position: relative;
-  z-index: 9;
   grid-area: list;
   background-color: transparent;
   margin-left: auto;
   margin-right: auto;
   width: 60rem;
+  height: 23rem;
 }/*API REQUEST RESULT ITEMS*/
   .results__list {
     list-style: none;
@@ -207,6 +199,19 @@ body {
       height: inherit;
     }
 
+
+/*ADVICE ELEMENT*/
+.advice {
+  grid-area: advice;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+  font-weight: 200;
+  width: 100%;
+  font-size: 2rem;
+} .advice p {
+  color: whitesmoke;
+
+}
 
 
 /*BOTTOM SECTION OF THE PAGE*/
