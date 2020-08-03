@@ -27,6 +27,49 @@ body {
    }
 
 
+   
+/*LIKES PANEL*/
+.likes {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 !important; }
+  .likes__field {
+    cursor: pointer;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    transition: all .3s; }
+    .likes__field:hover {
+      background-color: rgba(250,241,245, 0.3); }
+  .likes__panel:hover,
+  .likes__field:hover + .likes__panel {
+    visibility: visible;
+    opacity: 1; }
+  .likes__icon {
+    height: 3.75rem;
+    width: 3.75rem;
+    border: none;
+    background-color: transparent; }
+    .likes__icon:hover, .likes__icon:visited, .likes__icon:focus {
+      outline: 0;
+    }
+    .likes__icon img {
+      height: 3.5rem;
+      width: 3.5rem;
+    }
+  .likes__panel {
+    position: absolute;
+    right: 0;
+    padding: 2rem 0;
+    width: 18rem;
+    background-color: rgba(250,241,245, 0.4);
+    box-shadow: 0 0.8rem 5rem 2rem rgba(101, 90, 86, 0.1);
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s .2s; }
+
+    
   
 /*'LOOKING FOR ADVICE?' TITLE*/
 .page-title {
