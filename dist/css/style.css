@@ -61,13 +61,16 @@ body {
   .likes__panel {
     position: absolute;
     right: 0;
-    padding: 2rem 0;
     width: 18rem;
     background-color: rgba(250,241,245, 0.4);
     box-shadow: 0 0.8rem 5rem 2rem rgba(101, 90, 86, 0.1);
     visibility: hidden;
     opacity: 0;
+    
     transition: all .5s .2s; }
+    .likes__list {
+      list-style: none;
+    }
 
     
   
@@ -187,19 +190,19 @@ body {
 }/*API REQUEST RESULT ITEMS*/
   .results__list {
     list-style: none;
-  } .results__link {
+  } .results__link, .likes__data {
     padding: 1rem;
     transition: all .3s;
     border-bottom-width: thin;
     border-bottom-style: solid;
     border-bottom-color: aliceblue;
-  } .results__link a {
+  } .results__link a, .likes__link {
       text-decoration: none;
       color: whitesmoke;
     }.results__link a:link, results__link a:visited {
       text-decoration: none;
       color: whitesmoke;
-    }.results__link:hover {
+    }.results__link:hover, .likes__data:hover {
       background-color: rgba(250,241,245, 0.4);
     }
     .results__link--active {
