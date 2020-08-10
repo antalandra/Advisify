@@ -210,7 +210,7 @@ body {
     }
     .results__data {
     } .results__data h2 {
-      width: 55rem;
+      width: 58rem;
     } 
     .results__data--heart {
       grid-area: "heart-icon";
