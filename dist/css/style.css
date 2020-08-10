@@ -264,7 +264,7 @@ body {
   padding: 0 1vw;
   width: 60rem;
   border-bottom-width: thin;
-  border-bottom-style: solid;
+  /* border-bottom-style: solid; */
   border-bottom-color: aliceblue;
   font-family: 'Dosis', sans-serif;
   font-weight: 400;
@@ -310,6 +310,7 @@ body {
 footer {
     position:fixed;
     bottom:0;
+    left: 0;
     width:100%;
     display:block;
 }
