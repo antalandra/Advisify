@@ -5,16 +5,16 @@ export const elements = {
     searchInput: document.querySelector('.search__field'),
     searchResults: document.querySelector('.results'),
     searchResultsList: document.querySelector('.results__list'),
-    searchResArrows: document.querySelector('.results__arrow--div'),
-    searchResButton: document.querySelector('.results__arrow--button')
+    searchResArrowLeft: document.querySelector('.results__arrow--left'),
+    searchResArrowRight: document.querySelector('.results__arrow--right')
+    
     
 };
 
 // REUSABLE ELEMENTS NOT ALREADY IN DOM
 export const elementStrings = {
     loader: 'loader',
-    searchResArrowLeft: '.results__arrow--left',
-    searchResArrowRight: '.results__arrow--right',
+    searchResButton: 'results__arrow--button',
     adviceResult: 'results__link'
 };
 
