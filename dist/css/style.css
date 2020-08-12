@@ -208,8 +208,7 @@ body {
     .results__link--active {
       background-color: rgba(250,241,245, 0.4);
     }
-    .results__data {
-    } .results__data h2 {
+     .results__data h2 {
       width: 58rem;
     } 
     .results__data--heart {
@@ -275,10 +274,7 @@ body {
   color: whitesmoke;
 
 }
-.advice__button {
-  
-
-  } .advice--btns {
+ .advice--btns {
     width: 2.5rem;
     height: 2.5rem;
     border: none;

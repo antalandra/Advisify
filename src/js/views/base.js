@@ -6,7 +6,10 @@ export const elements = {
     searchResults: document.querySelector('.results'),
     searchResultsList: document.querySelector('.results__list'),
     searchResArrowLeft: document.querySelector('.results__arrow--left'),
-    searchResArrowRight: document.querySelector('.results__arrow--right')
+    searchResArrowRight: document.querySelector('.results__arrow--right'),
+    adviceElement: document.querySelector('.advice'),
+    adviceElementButtons: document.querySelector('.advice__buttons')
+
     
     
 };
@@ -15,7 +18,11 @@ export const elements = {
 export const elementStrings = {
     loader: 'loader',
     searchResButton: 'results__arrow--button',
-    adviceResult: 'results__link'
+    adviceResult: 'results__link',
+    adviceParagraph: 'advice__paragraph',
+    adviceHeartIcon: 'advice__button--heart',
+    adviceCopyIcon: 'advice__button--copy',
+    adviceExportIcon: 'advice__button--export'
 };
 
 
