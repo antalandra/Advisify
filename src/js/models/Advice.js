@@ -8,8 +8,12 @@ export default class Advice {
     async getAdvice() {
         try {
             const res = await axios(`https://api.adviceslip.com/advice/${this.adviceID}`);
+            console.log(res);
+            //console.log(res.data);
+            const adviceObject = JSON.parse(res.data);
+            //console.log(adviceObject);
             this.text = res.data.slip.advice;
-            console.log(this.text);
+            //console.log(this.text);
         } 
         catch(error) {
             console.log(error);

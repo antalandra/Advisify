@@ -2,6 +2,7 @@
 import Search from "./models/Search";
 import Advice from "./models/Advice";
 import * as searchView from "./views/searchView";
+import * as adviceView from "./views/adviceView";
 import {
   renderLoader,
   elements,
@@ -16,7 +17,7 @@ const state = {};
 
 // SEARCH CONTROLLER
 
-async function controlSearch() {
+const controlSearch = async () => {
   // Getting input query from interface i.e. searchView
   const query = searchView.getInput();
 
@@ -69,3 +70,38 @@ const renderPaginationResults = (el) => {
 
 elements.searchResArrowRight.addEventListener("click", renderPaginationResults);
 elements.searchResArrowLeft.addEventListener("click", renderPaginationResults);
+
+
+// ADVICE ELEMENT CONTROLLER
+
+const controlAdvice = async () => {
+    // Getting the ID from the url when it changes in the link
+    const id = window.location.hash.replace('#', '');
+    if (id) {
+        // Creating an Advice Object
+        state.advice = new Advice(id);
+
+        // Clearing previous advice content in preparation for new UI Advice element
+         adviceView.clearAdviceElement();
+
+        try {
+
+            // Calling API request by id method to retrieve Advice Slip
+            await state.advice.getAdvice();
+           
+            // Rendering the advice element content
+            adviceView.renderAdviceElement(state.advice.text);
+            // Highlighting the advice result item if present in the list
+            searchView.highlightSelected(id);
+        }
+        // Handling errors
+        catch(err){
+            console.log('An error has occured while retrieving Advice info. See console.');
+            console.log(err);
+        }
+    }
+    
+} 
+
+// , 'load'
+['hashchange'].forEach(event => window.addEventListener(event, controlAdvice));
