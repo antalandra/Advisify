@@ -169,7 +169,7 @@ body {
 }.loader img{
     transform-origin: 44% 50%;
     animation: rotate 2s infinite linear;
-    width: 20%;
+    width: 15%;
   }
   @keyframes rotate {
     0% {
@@ -263,8 +263,11 @@ body {
   padding: 0 1vw;
   width: 60rem;
   border-bottom-width: thin;
-  /* border-bottom-style: solid; */
+  /* border-bottom-style: solid; */ /* INJECTED INTO DOM USING JS */
   border-bottom-color: aliceblue;
+  border-top-width: thin;
+  border-top-style: solid; /* MANIPULATED IN DOM USING JS */
+  border-top-color: aliceblue;
   font-family: 'Dosis', sans-serif;
   font-weight: 400;
   font-size: 3rem;

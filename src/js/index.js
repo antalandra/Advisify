@@ -40,7 +40,21 @@ const controlSearch = async () => {
       clearLoader();
 
       // Rendering results on the UI
-      searchView.renderResults(state.search.result);
+      state.numOfAdviceResPeronPage = searchView.renderResults(state.search.result);
+
+      if(state.numOfAdviceResPeronPage === 5) 
+      {
+        // Removing top border on advice element when 5 results are shown on page
+        adviceView.removeAdviceTopBorder();
+      }
+      else if (state.numOfAdviceResPeronPage < 5)
+      {
+        // Adding top border on advice element if there are less than 5 elements on page
+        adviceView.addAdviceTopBorder();
+      }
+
+      
+
     } catch (error) {
       // Clearing the loader
       clearLoader();
@@ -64,7 +78,12 @@ const renderPaginationResults = (el) => {
     // Clearing the result items currently in the container and any extra buttons
     searchView.clearResults();
     // Rendering the results on the page the button points to
-    searchView.renderResults(state.search.result, goToPage);
+    state.numOfAdviceResPeronPage = searchView.renderResults(state.search.result, goToPage);
+
+    if (state.numOfAdviceResPeronPage < 5)
+    {
+      adviceView.addAdviceTopBorder();
+    }
   }
 };
 
@@ -98,6 +117,14 @@ const controlAdvice = async () => {
             adviceView.renderAdviceElement(state.advice.text);
             // Highlighting the advice result item if present in the list
             searchView.highlightSelected(id);
+
+            // Checking to see if there are < 5 elements in the search result list
+            if (!state.search.result || state.numOfAdviceResPeronPage < 5) {
+              console.log(state.search.result.length);
+              adviceView.addAdviceTopBorder();
+            }
+
+
         }
         // Handling errors
         catch(err){
@@ -108,5 +135,4 @@ const controlAdvice = async () => {
     
 } 
 
-// , 'load'
-['hashchange', 'load'].forEach(event => window.addEventListener(event, controlAdvice));
+['load', 'hashchange'].forEach(event => window.addEventListener(event, controlAdvice));

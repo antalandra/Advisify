@@ -113,8 +113,11 @@ export const renderResults = (advices, page = 1, resPerPage = 5) => {
   const start = (page - 1) * resPerPage;
   const end = page * resPerPage;
 
-  advices.slice(start, end).forEach(renderAdvice);
+  const advicesOnPage = advices.slice(start, end);
+  advicesOnPage.forEach(renderAdvice);
 
   // Rendering page buttons
   renderButtons(page, advices.length, resPerPage);
+
+  return advicesOnPage.length;
 };

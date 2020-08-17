@@ -4,24 +4,43 @@
 import { elements, elementStrings } from "./base";
 import { limitAdviceText } from "./searchView";
 
-// Clearing the advice text in the advice element box
+// CLEARING THE ADVICE TEXT IN THE ADVICE ELEMENT BOX
 const clearAdviceText = adviceTextP => {
   elements.adviceElement.removeChild(adviceTextP);
 };
 
-// Clearing the icon buttons in the advice element box
+// CLEARING THE ICON BUTTONS IN THE ADVICE ELEMENT BOX
 const clearAdviceButtons = () => {
   elements.adviceElementButtons.innerHTML = "";
 };
 
-// Clearing the elements of the advice element box at bottom of container
+// CLEARING THE TOP BORDER FROM THE ADVICE ELEMENT BOX
+export const removeAdviceTopBorder = () => {
+  elements.adviceElement.style.borderTopStyle = "none";
+}
+
+// CLEARING THE ELEMENTS OF THE ADVICE ELEMENT BOX AT BOTTOM OF CONTAINER
 export const clearAdviceElement = adviceTextP => {
   clearAdviceText(adviceTextP);
   clearAdviceButtons();
+  // Removing extra padding that might have been added due to letter count in advice text
+  elements.adviceElement.style.paddingTop = "0px";
+  // Removing top border in case it has been added
+  elements.adviceElement.style.borderTopStyle = "none";
 };
 
-const addBottomBorder = () => {
+const addAdviceBottomBorder = () => {
   elements.adviceElement.style.borderBottomStyle = "solid";
+};
+
+export const addAdviceTopBorder = () => {
+  elements.adviceElement.style.borderTopStyle = "solid";
+};
+
+const addExtraPadding = adviceText => {
+  if (adviceText.length <= 50) {
+    elements.adviceElement.style.paddingTop = "37px";
+  }
 };
 
 // CREATING P ELEMENT WITH THE TEXT OF THE ADVICE
@@ -45,8 +64,10 @@ export const renderAdviceElement = (adviceText) => {
   const pElement = createAdviceText(adviceText);
   elements.adviceElement.insertAdjacentHTML("afterbegin", pElement);
 
+  addExtraPadding(adviceText);
+
   const buttons = createAdviceButtons();
   elements.adviceElementButtons.insertAdjacentHTML("afterbegin", buttons);
 
-  addBottomBorder();
+  addAdviceBottomBorder();
 };
