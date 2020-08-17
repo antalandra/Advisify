@@ -81,8 +81,13 @@ const controlAdvice = async () => {
         // Creating an Advice Object
         state.advice = new Advice(id);
 
-        // Clearing previous advice content in preparation for new UI Advice element
-         adviceView.clearAdviceElement();
+        const adviceTextP = document.querySelector(`.${elementStrings.adviceParagraph}`);
+
+        if (adviceTextP)
+        {
+          // Clearing previous advice content in preparation for new UI Advice element
+          adviceView.clearAdviceElement(adviceTextP);
+        }
 
         try {
 
@@ -104,4 +109,4 @@ const controlAdvice = async () => {
 } 
 
 // , 'load'
-['hashchange'].forEach(event => window.addEventListener(event, controlAdvice));
+['hashchange', 'load'].forEach(event => window.addEventListener(event, controlAdvice));

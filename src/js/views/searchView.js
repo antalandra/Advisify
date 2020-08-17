@@ -32,12 +32,13 @@ export const highlightSelected = (id) => {
   const adviceElement = document.querySelector(
     `.${elementStrings.adviceResult}[href="#${id}]`
   );
+  console.log(adviceElement);
   // Highlighting advice element if found in results list of advices
   if (adviceElement) adviceElement.classList.add("results__link--active");
 };
 
 // LIMITING ADVICE TEXT TO 88 CHARACTERS IN THE RESULTS LIST
-export const limitAdviceText = (text, limit = 88) => {
+export const limitAdviceText = (text, limit = 92) => {
   const newAdviceText = [];
   if (text.length > limit) {
     text.split(" ").reduce((acc, curr) => {
@@ -46,8 +47,8 @@ export const limitAdviceText = (text, limit = 88) => {
       }
       return acc + curr.length;
     }, 0);
-
-    return `${newAdviceText.join(" ")} ...`;
+    newAdviceText[newAdviceText.length-1] = newAdviceText[newAdviceText.length-1].replace('.', '');
+    return `${newAdviceText.join(" ")}...`;
   }
   return text;
 };

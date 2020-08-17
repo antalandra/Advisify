@@ -5,10 +5,8 @@ import { elements, elementStrings } from "./base";
 import { limitAdviceText } from "./searchView";
 
 // Clearing the advice text in the advice element box
-const clearAdviceText = () => {
-  if (elementStrings.adviceParagraph) {
-    elements.adviceElement.removeChild(elementStrings.adviceParagraph);
-  }
+const clearAdviceText = adviceTextP => {
+  elements.adviceElement.removeChild(adviceTextP);
 };
 
 // Clearing the icon buttons in the advice element box
@@ -17,8 +15,8 @@ const clearAdviceButtons = () => {
 };
 
 // Clearing the elements of the advice element box at bottom of container
-export const clearAdviceElement = () => {
-  //clearAdviceText();
+export const clearAdviceElement = adviceTextP => {
+  clearAdviceText(adviceTextP);
   clearAdviceButtons();
 };
 
@@ -28,7 +26,7 @@ const addBottomBorder = () => {
 
 // CREATING P ELEMENT WITH THE TEXT OF THE ADVICE
 const createAdviceText = (adviceText) =>
-  `<p class=${elementStrings.adviceParagraph}>${limitAdviceText(adviceText,92)}<p>`;
+  `<p class=${elementStrings.adviceParagraph}>${limitAdviceText(adviceText,100)}<p>`;
 
 // CREATING THE ADVICE BUTTONS SHOWN IN THE ADVICE ELEMENT
 const createAdviceButtons = () =>
