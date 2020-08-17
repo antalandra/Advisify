@@ -8,10 +8,11 @@ export const elements = {
     searchResArrowLeft: document.querySelector('.results__arrow--left'),
     searchResArrowRight: document.querySelector('.results__arrow--right'),
     adviceElement: document.querySelector('.advice'),
-    adviceElementButtons: document.querySelector('.advice__buttons')
-
-    
-    
+    adviceElementButtons: document.querySelector('.advice__buttons'),
+    likes: document.querySelector('.likes'),
+    likesButton: document.querySelector('.likes__icon'),
+    likesPanel: document.querySelector('.likes__panel'),
+    likesList: document.querySelector('.likes__list')
 };
 
 // REUSABLE ELEMENTS NOT ALREADY IN DOM

@@ -1,14 +1,17 @@
 // GLOBAL APP CONTROLLER
 import Search from "./models/Search";
 import Advice from "./models/Advice";
+import Likes from "./models/Likes";
 import * as searchView from "./views/searchView";
 import * as adviceView from "./views/adviceView";
+import * as likesView from "./views/likesView";
 import {
   renderLoader,
   elements,
   clearLoader,
   elementStrings,
 } from "./views/base";
+import { setMaxListeners } from "npm";
 
 // GLOBAL STATE OF THE APP
 // Contains:
@@ -132,7 +135,66 @@ const controlAdvice = async () => {
             console.log(err);
         }
     }
+    else{
+      adviceView.removeAdviceTopBorder();
+    }
     
 } 
 
 ['load', 'hashchange'].forEach(event => window.addEventListener(event, controlAdvice));
+
+// LIKES PANEL CONTROLLER
+
+const controlLikes = () => {
+    // Creating a likes object if no objects in local storage
+    if (!state.likes) state.likes = new Likes();
+
+    // Getting the ID of the advice element currently shown in container
+    const currentID = state.advice.adviceID;
+
+    // Checking if the advice element currently in container was added to likes list
+    if(!state.likes.isLiked(currentID))
+    {
+      // Adding advice element to liked list when it wasn't liked before
+      const newLike = state.likes.addLikedAdvice(currentID, state.advice.text);
+      // Toggling the like button
+      likesView.toggleHeartIcon(true);
+      // Rendering the new advice element in the likes panel
+      likesView.renderLikeElement(newLike);
+    }
+    else{
+      // Deleting advice element from liked list if it was already liked
+      state.likes.deleteLikedAdvice(currentID);
+      // Toggling the like button
+      likesView.toggleHeartIcon(false);
+      // Removing the like element from the interface likes panel
+      likesView.deleteLikeElement(currentID);
+    }
+
+    // Toggling like panel based on number of liked advice elements
+    likesView.toggleLikePanel(state.likes.getNumLikes());
+
+};
+
+// RESTORING LIKED ADVICES ON PAGE LOAD
+window.addEventListener('load', () => {
+  // Initialising likes object
+  state.likes = new Likes();
+
+  // Reading from local storage and and initialising likes array with any existing liked advice elements
+  state.likes.readStorage();
+
+  // Toggling the like panel based on whether there are liked advices stored in localStorage
+  likesView.toggleLikePanel(state.likes.getNumLikes());
+
+  // Rendering every liked advice element in the likes panel if existing
+  state.likes.likes.forEach(like => likesView.renderLikeElement(like));
+});
+
+
+// HANDLING ADVICE ELEMENT BUTTON CLICKS USING EVENT DELEGATION
+elements.adviceElement.addEventListener('click', el => {
+  if (el.target.matches(`.${elementStrings.adviceHeartIcon}`)){
+    controlLikes();
+  }
+});
