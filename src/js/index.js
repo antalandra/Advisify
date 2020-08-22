@@ -11,7 +11,6 @@ import {
   clearLoader,
   elementStrings,
 } from "./views/base";
-import { setMaxListeners } from "npm";
 
 // GLOBAL STATE OF THE APP
 // Contains:
@@ -49,6 +48,7 @@ const controlSearch = async () => {
       {
         // Removing top border on advice element when 5 results are shown on page
         adviceView.removeAdviceTopBorder();
+        console.log('are we tryna remove');
       }
       else if (state.numOfAdviceResPeronPage < 5)
       {
@@ -83,6 +83,7 @@ const renderPaginationResults = (el) => {
     // Rendering the results on the page the button points to
     state.numOfAdviceResPeronPage = searchView.renderResults(state.search.result, goToPage);
 
+    adviceView.removeAdviceTopBorder();
     if (state.numOfAdviceResPeronPage < 5)
     {
       adviceView.addAdviceTopBorder();

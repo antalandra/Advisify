@@ -107,6 +107,10 @@ const renderButtons = (page, numResults, resPerPage) => {
   }
 };
 
+const removeDuplicates = advices => {
+  
+};
+
 // RENDERING 5 ADVICES PER PAGE, ACCORDING TO THE PAGE WE'RE ON
 export const renderResults = (advices, page = 1, resPerPage = 5) => {
   // Rendering the results of the current page
