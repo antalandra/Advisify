@@ -22,9 +22,12 @@ export const elementStrings = {
     adviceResult: 'results__link',
     adviceResultTag: 'results__link--tag',
     adviceParagraph: 'advice__paragraph',
+    adviceButton: 'advice--btns',
     adviceHeartIcon: 'advice__button--heart',
+    adviceHeartImg: 'advice__img--heart',
     adviceCopyIcon: 'advice__button--copy',
-    adviceExportIcon: 'advice__button--export'
+    adviceExportIcon: 'advice__button--export',
+    likeLink: 'likes__link'
 };
 
 
@@ -41,5 +44,32 @@ export const renderLoader = parent => {
 export const clearLoader = () => {
     const loader = document.querySelector(`.${elementStrings.loader}`);
     if (loader) loader.parentElement.removeChild(loader);
+};
+
+export const removeExistingHighlight = itemClass => {
+    // Getting an array of advice elements from results with corresponding class
+    const resultsArray = Array.from(
+    document.querySelectorAll(`.${itemClass}`)
+    );
+    console.log(resultsArray);
+    // Removing active class from advice elements i.e. highlight
+    resultsArray.forEach((el) => {
+    el.classList.remove("results__link--active");
+    });
+};
+
+export const highlightCorrespondingItem = (itemClass, id) => {
+    // Finding advice element result with corresponding id
+  const linkElements = Array.from(document.querySelectorAll(`.${itemClass}`));
+  console.log(linkElements);
+  const element = linkElements.filter(el => el.getAttribute("href").replace('#', '') === id)[0];
+  console.log('element:' + element);
+  if (element) {
+    const parent = element.parentElement;
+      // Highlighting parent element if found in results list of advices
+    if (parent) element.classList.add("results__link--active");
+    console.log(element.classList);
+    
+  }
 };
 

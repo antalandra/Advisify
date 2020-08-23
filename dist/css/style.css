@@ -266,7 +266,7 @@ body {
   /* border-bottom-style: solid; */ /* INJECTED INTO DOM USING JS */
   border-bottom-color: aliceblue;
   border-top-width: thin;
-  border-top-style: solid; /* MANIPULATED IN DOM USING JS */
+  /*border-top-style: solid; /* MANIPULATED IN DOM USING JS */
   border-top-color: aliceblue;
   font-family: 'Dosis', sans-serif;
   font-weight: 400;

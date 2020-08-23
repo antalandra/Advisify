@@ -1,7 +1,7 @@
 // LIKES PANEL INTERFACE LINK
 
 // Imports
-import { elements, elementStrings } from "./base";
+import { elements, elementStrings, removeExistingHighlight, highlightCorrespondingItem } from "./base";
 import { limitAdviceText } from "./searchView";
 
 // HIDING THE LIKES PANEL
@@ -43,8 +43,22 @@ export const deleteLikeElement = id => {
 // TRUE: HEART FILLED
 // FALSE: HEART OUTLINED
 export const toggleHeartIcon = isLiked => {
-    const heartIcon = document.querySelector(`.${elementStrings.adviceHeartIcon}`);
-    if (heartIcon) {
-        heartIcon.src = `img/heart${isLiked ? '' : '-outline'}.png`; 
+    const heartImg = document.querySelector(`.${elementStrings.adviceHeartImg}`);
+    console.log(heartImg);
+    if (heartImg) {
+        heartImg.src = `img/heart${isLiked ? '' : '-outline'}.png`;
+        console.log(heartImg.src) 
     }
 };
+
+
+// HIGHLIGHTING SELECTED ELEMENT IN THE RESULTS LIST OF ADVICES
+export const highlightSelectedLike = (id) => {
+
+    // Removing highlight on any like element which existed previously
+    removeExistingHighlight(elementStrings.likeLink);
+    
+    // Adding highlight to correct liked element in the likes panel when advice div corresponds
+    highlightCorrespondingItem(elementStrings.likeLink, id);
+    
+  };

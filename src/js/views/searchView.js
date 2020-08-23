@@ -1,7 +1,7 @@
 // SEARCH INTERFACE LINK
 
 // Imports
-import { elements, elementStrings } from "./base";
+import { elements, elementStrings, removeExistingHighlight, highlightCorrespondingItem } from "./base";
 
 // ACCESSING INPUT FROM THE SEARCH BOX INPUT
 export const getInput = () => elements.searchInput.value;
@@ -19,24 +19,13 @@ export const clearResults = () => {
 };
 
 // HIGHLIGHTING SELECTED ELEMENT IN THE RESULTS LIST OF ADVICES
-export const highlightSelected = (id) => {
-  // Getting an array of advice elements from results with corresponding class
-  const adviceResultsArray = Array.from(
-    document.querySelectorAll(`.${elementStrings.adviceResult}`)
-  );
-  // Removing active class from advice elements i.e. highlight
-  adviceResultsArray.forEach((el) => {
-    el.classList.remove("results__link--active");
-  });
-  // Finding advice element result with corresponding id
-  const adviceLinkTags = Array.from(document.querySelectorAll(`.${elementStrings.adviceResultTag}`));
-  const aTag = adviceLinkTags.filter(aTag => aTag.getAttribute("href").replace('#', '') === id)[0];
-  if (aTag) {
-    const adviceElement = aTag.parentElement;
-      // Highlighting advice element if found in results list of advices
-    if (adviceElement) adviceElement.classList.add("results__link--active");
-    
-  }
+export const highlightSelectedAdvice = (id) => {
+
+  // Removing highlight which existed previously in the DOM elements
+  removeExistingHighlight(elementStrings.adviceResult);
+  
+  // Adding highlight to the correct item if found in the list above the advice div
+  highlightCorrespondingItem(elementStrings.adviceResultTag, id);
   
 };
 

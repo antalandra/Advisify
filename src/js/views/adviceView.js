@@ -27,6 +27,7 @@ export const clearAdviceElement = adviceTextP => {
   elements.adviceElement.style.paddingTop = "0px";
   // Removing top border in case it has been added
   removeAdviceTopBorder();
+  console.log('removing top border when clearing advice element');
 };
 
 const addAdviceBottomBorder = () => {
@@ -50,13 +51,13 @@ const createAdviceText = (adviceText) =>
 // CREATING THE ADVICE BUTTONS SHOWN IN THE ADVICE ELEMENT
 const createAdviceButtons = () =>
   `<button class="advice--btns ${elementStrings.adviceHeartIcon}">
-        <img src="img/heart-outline.png"/>
+        <img class="advice__img--heart" src="img/heart-outline.png"/>
         </button>
         <button class="advice--btns ${elementStrings.adviceCopyIcon}">
-            <img src="img/copy-outline.png"/>
+            <img class="advice__img--copy" src="img/copy-outline.png"/>
         </button>
         <button class="advice--btns ${elementStrings.adviceExportIcon}">
-            <img src="img/download-outline.png"/>
+            <img class="advice__img--export" src="img/download-outline.png"/>
         </button>`;
 
 // RENDERING ADVICE ELEMENT
@@ -70,4 +71,5 @@ export const renderAdviceElement = (adviceText) => {
   elements.adviceElementButtons.insertAdjacentHTML("afterbegin", buttons);
 
   addAdviceBottomBorder();
+  addAdviceTopBorder();
 };

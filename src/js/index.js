@@ -48,6 +48,7 @@ const controlSearch = async () => {
       {
         // Removing top border on advice element when 5 results are shown on page
         adviceView.removeAdviceTopBorder();
+        console.log('removing top border for 5 === results');
       }
       else if (state.numOfAdviceResPeronPage < 5)
       {
@@ -83,9 +84,8 @@ const renderPaginationResults = (el) => {
     // Getting the ID from the url when it changes in the link
     const id = window.location.hash.replace('#', '');
     // Highlighting the advice result item if present in the list
-    if (id) searchView.highlightSelected(id);
+    if (id) searchView.highlightSelectedAdvice(id);
 
-    adviceView.removeAdviceTopBorder();
     if (state.numOfAdviceResPeronPage < 5)
     {
       adviceView.addAdviceTopBorder();
@@ -121,11 +121,17 @@ const controlAdvice = async () => {
            
             // Rendering the advice element content
             adviceView.renderAdviceElement(state.advice.text);
+
+            if(state.likes){
+              // Toggling heart icon button when rendering advice whether isLiked === true || false
+              likesView.toggleHeartIcon(state.likes.isLiked(id));
+            }
+            
             // Highlighting the advice result item if present in the list
-            searchView.highlightSelected(id);
+            searchView.highlightSelectedAdvice(id);
 
             // Checking to see if there are < 5 elements in the search result list
-            if (!state.search.result || state.numOfAdviceResPeronPage < 5 || state.numOfAdviceResPeronPage === 0) {
+            if (state.numOfAdviceResPeronPage < 5 || state.numOfAdviceResPeronPage === 0) {
               console.log(state.search.result.length);
               adviceView.addAdviceTopBorder();
             }
@@ -137,10 +143,12 @@ const controlAdvice = async () => {
             console.log('An error has occured while retrieving Advice info. See console.');
             console.log(err);
             adviceView.removeAdviceTopBorder();
+            console.log('removing top border when error retrieving advice occured');
         }
     }
     else{
       adviceView.removeAdviceTopBorder();
+      console.log('We reached else to remove top border for some weird reason');
     }
     
 } 
@@ -161,6 +169,7 @@ const controlLikes = () => {
     {
       // Adding advice element to liked list when it wasn't liked before
       const newLike = state.likes.addLikedAdvice(currentID, state.advice.text);
+      console.log('newLike added: ' + newLike);
       // Toggling the like button
       likesView.toggleHeartIcon(true);
       // Rendering the new advice element in the likes panel
@@ -194,14 +203,22 @@ window.addEventListener('load', () => {
   // Rendering every liked advice element in the likes panel if existing
   state.likes.likes.forEach(like => {
     likesView.renderLikeElement(like);
-    console.log(like);
   });
 });
 
 
 // HANDLING ADVICE ELEMENT BUTTON CLICKS USING EVENT DELEGATION
-elements.adviceElement.addEventListener('click', el => {
-  if (el.target.matches(`.${elementStrings.adviceHeartIcon}`)){
-    controlLikes();
-  }
+  elements.adviceElement.addEventListener('click', el => {
+  
+    if (el.target.matches('.advice--btns, .advice__button--heart, .advice__img--heart')){
+      controlLikes();
+    }
+    else if (el.target.matches(`.${elementStrings.adviceCopyIcon}`)){
+
+    } 
+    else if (el.target.matches(`.${elementStrings.adviceExportIcon}`)){
+
+    } else{
+      return;
+    }
 });
