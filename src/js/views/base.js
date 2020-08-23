@@ -20,6 +20,7 @@ export const elementStrings = {
     loader: 'loader',
     searchResButton: 'results__arrow--button',
     adviceResult: 'results__link',
+    adviceResultTag: 'results__link--tag',
     adviceParagraph: 'advice__paragraph',
     adviceHeartIcon: 'advice__button--heart',
     adviceCopyIcon: 'advice__button--copy',

@@ -83,6 +83,11 @@ const renderPaginationResults = (el) => {
     // Rendering the results on the page the button points to
     state.numOfAdviceResPeronPage = searchView.renderResults(state.search.result, goToPage);
 
+    // Getting the ID from the url when it changes in the link
+    const id = window.location.hash.replace('#', '');
+    // Highlighting the advice result item if present in the list
+    if (id) searchView.highlightSelected(id);
+
     adviceView.removeAdviceTopBorder();
     if (state.numOfAdviceResPeronPage < 5)
     {
@@ -123,7 +128,7 @@ const controlAdvice = async () => {
             searchView.highlightSelected(id);
 
             // Checking to see if there are < 5 elements in the search result list
-            if (!state.search.result || state.numOfAdviceResPeronPage < 5) {
+            if (!state.search.result || state.numOfAdviceResPeronPage < 5 || state.numOfAdviceResPeronPage === 0) {
               console.log(state.search.result.length);
               adviceView.addAdviceTopBorder();
             }
@@ -134,6 +139,7 @@ const controlAdvice = async () => {
         catch(err){
             console.log('An error has occured while retrieving Advice info. See console.');
             console.log(err);
+            adviceView.removeAdviceTopBorder();
         }
     }
     else{
@@ -187,9 +193,12 @@ window.addEventListener('load', () => {
 
   // Toggling the like panel based on whether there are liked advices stored in localStorage
   likesView.toggleLikePanel(state.likes.getNumLikes());
-
+ 
   // Rendering every liked advice element in the likes panel if existing
-  state.likes.likes.forEach(like => likesView.renderLikeElement(like));
+  state.likes.likes.forEach(like => {
+    likesView.renderLikeElement(like);
+    console.log(like);
+  });
 });
 
 

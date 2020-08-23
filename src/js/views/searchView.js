@@ -29,12 +29,15 @@ export const highlightSelected = (id) => {
     el.classList.remove("results__link--active");
   });
   // Finding advice element result with corresponding id
-  const adviceElement = document.querySelector(
-    `.${elementStrings.adviceResult}[href="#${id}]`
-  );
-  console.log(adviceElement);
-  // Highlighting advice element if found in results list of advices
-  if (adviceElement) adviceElement.classList.add("results__link--active");
+  const adviceLinkTags = Array.from(document.querySelectorAll(`.${elementStrings.adviceResultTag}`));
+  const aTag = adviceLinkTags.filter(aTag => aTag.getAttribute("href").replace('#', '') === id)[0];
+  if (aTag) {
+    const adviceElement = aTag.parentElement;
+      // Highlighting advice element if found in results list of advices
+    if (adviceElement) adviceElement.classList.add("results__link--active");
+    
+  }
+  
 };
 
 // LIMITING ADVICE TEXT TO 88 CHARACTERS IN THE RESULTS LIST
@@ -56,7 +59,7 @@ export const limitAdviceText = (text, limit = 92) => {
 // CREATING AND INJECTING THE ADVICE ELEMENT IN THE LIST
 const renderAdvice = (advice) => {
   const markup = `<li class="results__link">
-                        <a href="#${advice.id}">
+                        <a href="#${advice.id}" class="results__link--tag">
                             <div class="results__data">
                                 <h2 class="advice__string">${limitAdviceText(
                                   advice.advice

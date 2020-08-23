@@ -26,7 +26,7 @@ export const clearAdviceElement = adviceTextP => {
   // Removing extra padding that might have been added due to letter count in advice text
   elements.adviceElement.style.paddingTop = "0px";
   // Removing top border in case it has been added
-  elements.adviceElement.style.borderTopStyle = "none";
+  removeAdviceTopBorder();
 };
 
 const addAdviceBottomBorder = () => {

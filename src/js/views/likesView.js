@@ -6,12 +6,12 @@ import { limitAdviceText } from "./searchView";
 
 // HIDING THE LIKES PANEL
 const hideLikesPanel = () => {
-    elements.likesButton.style.visibility = "visible";
+    elements.likes.style.visibility = "hidden";
 };
 
 // SHOWING THE LIKES PANEL
 const showLikesPanel = () => {
-    elements.likesButton.style.visibility = "hidden";
+    elements.likes.style.visibility = "visible";
 };
 
 // SHOW/HIDE LIKES PANEL BASED ON NUMBER OF LIKED ADVICE ELEMENTS
@@ -20,7 +20,7 @@ export const toggleLikePanel = numOfLikes => {
 }
 
 // CREATING LIKE ELEMENT AND INJECTING INTO LIKES LIST IN DOM
-export const renderLikeElement = (like) => {
+export const renderLikeElement = like => {
     const likeElement =
     `<li>
         <a class="likes__link" href="#${like.id}">
@@ -30,6 +30,7 @@ export const renderLikeElement = (like) => {
         </a>
     </li>`
     elements.likesList.insertAdjacentHTML("beforeend", likeElement);
+    console.log(like.text);
 };
 
 // DELETING LIKE ELEMENT FROM THE LIST IN THE DOM BASED ON ID
