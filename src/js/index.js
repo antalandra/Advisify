@@ -187,6 +187,9 @@ const controlLikes = () => {
     // Toggling like panel based on number of liked advice elements
     likesView.toggleLikePanel(state.likes.getNumLikes());
 
+    // Highlighting selected like element
+    likesView.highlightSelectedLike(currentID);
+
 };
 
 // RESTORING LIKED ADVICES ON PAGE LOAD
