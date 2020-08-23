@@ -48,15 +48,12 @@ const controlSearch = async () => {
       {
         // Removing top border on advice element when 5 results are shown on page
         adviceView.removeAdviceTopBorder();
-        console.log('are we tryna remove');
       }
       else if (state.numOfAdviceResPeronPage < 5)
       {
         // Adding top border on advice element if there are less than 5 elements on page
         adviceView.addAdviceTopBorder();
       }
-
-      
 
     } catch (error) {
       // Clearing the loader

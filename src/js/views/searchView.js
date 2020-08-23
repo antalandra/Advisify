@@ -110,9 +110,21 @@ const renderButtons = (page, numResults, resPerPage) => {
   }
 };
 
+// Removing any possible duplicates within the advices returned
 const removeDuplicates = advices => {
-  
+  let adviceMap = new Map();
+  advices.forEach(advice => adviceMap.set(advice.advice, advice.id));
+  let newAdviceArray = [];
+  adviceMap.forEach((value, key) => {
+    const adviceObject = {
+      ['id']: parseInt(value, 10),
+      ['advice']: key
+    };
+    newAdviceArray.push(adviceObject);
+  });
+  return newAdviceArray;
 };
+
 
 // RENDERING 5 ADVICES PER PAGE, ACCORDING TO THE PAGE WE'RE ON
 export const renderResults = (advices, page = 1, resPerPage = 5) => {
@@ -120,8 +132,12 @@ export const renderResults = (advices, page = 1, resPerPage = 5) => {
   const start = (page - 1) * resPerPage;
   const end = page * resPerPage;
 
-  const advicesOnPage = advices.slice(start, end);
+  let advicesOnPage = advices.slice(start, end);
+
+  advicesOnPage = removeDuplicates(advicesOnPage);
+
   advicesOnPage.forEach(renderAdvice);
+  console.log(advicesOnPage);
 
   // Rendering page buttons
   renderButtons(page, advices.length, resPerPage);
