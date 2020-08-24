@@ -27,7 +27,8 @@ export const elementStrings = {
     adviceHeartImg: 'advice__img--heart',
     adviceCopyIcon: 'advice__button--copy',
     adviceExportIcon: 'advice__button--export',
-    likeLink: 'likes__link'
+    likeLink: 'likes__link--li',
+    likeLinkTag: 'likes__link'
 };
 
 
@@ -46,30 +47,39 @@ export const clearLoader = () => {
     if (loader) loader.parentElement.removeChild(loader);
 };
 
-export const removeExistingHighlight = itemClass => {
+export const highlightSelected = (listElement, aTag, id) => {
+  // Removing highlight which existed previously in the DOM elements
+  removeExistingHighlight(listElement);
+   // Adding highlight to the correct item if found in the list above the advice div
+  highlightCorrespondingItem(aTag, id);
+}
+
+const removeExistingHighlight = itemClass => {
     // Getting an array of advice elements from results with corresponding class
     const resultsArray = Array.from(
     document.querySelectorAll(`.${itemClass}`)
     );
-    console.log(resultsArray);
+    console.log('elements with the class possibly: ' + resultsArray);
     // Removing active class from advice elements i.e. highlight
-    resultsArray.forEach((el) => {
+    resultsArray.forEach(el => {
     el.classList.remove("results__link--active");
+    console.log('element ' + el + ' no longer has active class: ' + el.classList);
     });
 };
 
-export const highlightCorrespondingItem = (itemClass, id) => {
+const highlightCorrespondingItem = (itemClass, id) => {
     // Finding advice element result with corresponding id
   const linkElements = Array.from(document.querySelectorAll(`.${itemClass}`));
-  console.log(linkElements);
   const element = linkElements.filter(el => el.getAttribute("href").replace('#', '') === id)[0];
-  console.log('element:' + element);
+  console.log('element whose parent to highlight is: ' + element)
   if (element) {
     const parent = element.parentElement;
+    console.log('parent to highlight: ' + parent);
       // Highlighting parent element if found in results list of advices
-    if (parent) element.classList.add("results__link--active");
-    console.log(element.classList);
+    if (parent) {
+      parent.classList.add("results__link--active");
+      console.log('parent now has active class: ' + parent.classList);
+    }
     
   }
 };
-

@@ -169,7 +169,7 @@ body {
 }.loader img{
     transform-origin: 44% 50%;
     animation: rotate 2s infinite linear;
-    width: 15%;
+    width: 10%;
   }
   @keyframes rotate {
     0% {

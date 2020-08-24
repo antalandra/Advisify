@@ -1,7 +1,7 @@
 // SEARCH INTERFACE LINK
 
 // Imports
-import { elements, elementStrings, removeExistingHighlight, highlightCorrespondingItem } from "./base";
+import { elements, elementStrings, highlightSelected } from "./base";
 
 // ACCESSING INPUT FROM THE SEARCH BOX INPUT
 export const getInput = () => elements.searchInput.value;
@@ -19,14 +19,8 @@ export const clearResults = () => {
 };
 
 // HIGHLIGHTING SELECTED ELEMENT IN THE RESULTS LIST OF ADVICES
-export const highlightSelectedAdvice = (id) => {
-
-  // Removing highlight which existed previously in the DOM elements
-  removeExistingHighlight(elementStrings.adviceResult);
-  
-  // Adding highlight to the correct item if found in the list above the advice div
-  highlightCorrespondingItem(elementStrings.adviceResultTag, id);
-  
+export const highlightSelectedAdvice = id => {
+  highlightSelected(elementStrings.adviceResult, elementStrings.adviceResultTag, id);
 };
 
 // LIMITING ADVICE TEXT TO 88 CHARACTERS IN THE RESULTS LIST

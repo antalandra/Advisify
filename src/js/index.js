@@ -86,7 +86,7 @@ const renderPaginationResults = (el) => {
     // Highlighting the advice result item if present in the list
     if (id) searchView.highlightSelectedAdvice(id);
 
-    if (state.numOfAdviceResPeronPage < 5)
+    if (state.numOfAdviceResPeronPage < 5 && state.advice)
     {
       adviceView.addAdviceTopBorder();
     }
@@ -125,6 +125,8 @@ const controlAdvice = async () => {
             if(state.likes){
               // Toggling heart icon button when rendering advice whether isLiked === true || false
               likesView.toggleHeartIcon(state.likes.isLiked(id));
+              // Highlighting selected like element
+              likesView.highlightSelectedLike(id);
             }
             
             // Highlighting the advice result item if present in the list
@@ -135,8 +137,6 @@ const controlAdvice = async () => {
               console.log(state.search.result.length);
               adviceView.addAdviceTopBorder();
             }
-
-
         }
         // Handling errors
         catch(err){

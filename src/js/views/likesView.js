@@ -1,7 +1,7 @@
 // LIKES PANEL INTERFACE LINK
 
 // Imports
-import { elements, elementStrings, removeExistingHighlight, highlightCorrespondingItem } from "./base";
+import { elements, elementStrings, removeExistingHighlight, highlightCorrespondingItem, highlightSelected } from "./base";
 import { limitAdviceText } from "./searchView";
 
 // HIDING THE LIKES PANEL
@@ -22,7 +22,7 @@ export const toggleLikePanel = numOfLikes => {
 // CREATING LIKE ELEMENT AND INJECTING INTO LIKES LIST IN DOM
 export const renderLikeElement = like => {
     const likeElement =
-    `<li>
+    `<li class="likes__link--li" >
         <a class="likes__link" href="#${like.id}">
             <div class="likes__data">
                 <p class="likes__advice">${like.text}</p>
@@ -54,11 +54,5 @@ export const toggleHeartIcon = isLiked => {
 
 // HIGHLIGHTING SELECTED ELEMENT IN THE RESULTS LIST OF ADVICES
 export const highlightSelectedLike = (id) => {
-
-    // Removing highlight on any like element which existed previously
-    removeExistingHighlight(elementStrings.likeLink);
-    
-    // Adding highlight to correct liked element in the likes panel when advice div corresponds
-    highlightCorrespondingItem(elementStrings.likeLink, id);
-    
+    highlightSelected(elementStrings.likeLink, elementStrings.likeLinkTag, id);
   };
