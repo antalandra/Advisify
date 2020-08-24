@@ -136,7 +136,7 @@ const controlAdvice = async () => {
             if (state.numOfAdviceResPeronPage < 5 || state.numOfAdviceResPeronPage === 0) {
               console.log(state.search.result.length);
               adviceView.addAdviceTopBorder();
-            } else {
+            } else if (state.numOfAdviceResPeronPage === 5) {
               adviceView.removeAdviceTopBorder();
             }
         }
