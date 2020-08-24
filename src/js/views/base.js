@@ -59,11 +59,9 @@ const removeExistingHighlight = itemClass => {
     const resultsArray = Array.from(
     document.querySelectorAll(`.${itemClass}`)
     );
-    console.log('elements with the class possibly: ' + resultsArray);
     // Removing active class from advice elements i.e. highlight
     resultsArray.forEach(el => {
     el.classList.remove("results__link--active");
-    console.log('element ' + el + ' no longer has active class: ' + el.classList);
     });
 };
 
@@ -71,14 +69,11 @@ const highlightCorrespondingItem = (itemClass, id) => {
     // Finding advice element result with corresponding id
   const linkElements = Array.from(document.querySelectorAll(`.${itemClass}`));
   const element = linkElements.filter(el => el.getAttribute("href").replace('#', '') === id)[0];
-  console.log('element whose parent to highlight is: ' + element)
   if (element) {
     const parent = element.parentElement;
-    console.log('parent to highlight: ' + parent);
       // Highlighting parent element if found in results list of advices
     if (parent) {
       parent.classList.add("results__link--active");
-      console.log('parent now has active class: ' + parent.classList);
     }
     
   }

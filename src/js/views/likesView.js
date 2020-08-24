@@ -30,7 +30,6 @@ export const renderLikeElement = like => {
         </a>
     </li>`
     elements.likesList.insertAdjacentHTML("beforeend", likeElement);
-    console.log(like.text);
 };
 
 // DELETING LIKE ELEMENT FROM THE LIST IN THE DOM BASED ON ID
@@ -44,10 +43,8 @@ export const deleteLikeElement = id => {
 // FALSE: HEART OUTLINED
 export const toggleHeartIcon = isLiked => {
     const heartImg = document.querySelector(`.${elementStrings.adviceHeartImg}`);
-    console.log(heartImg);
     if (heartImg) {
         heartImg.src = `img/heart${isLiked ? '' : '-outline'}.png`;
-        console.log(heartImg.src) 
     }
 };
 
