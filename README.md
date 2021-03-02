@@ -60,7 +60,7 @@ When there are liked advices, the likes panel is visible:
 
 ![Homepage without likes panel](https://github.com/antalandra/Advisify/blob/master/dist/img/likedadvice-likesvisible.PNG?raw=true)
 
-Every liked advice item is shown in the panel when hovered. The liked items are clickable and any clicked advices will be loaded in the container through hashchange.
+Every liked advice item is shown in the panel when hovered. The liked items are clickable and any clicked advices will be loaded in the container through hash change.
 
 ![Homepage without likes panel](https://github.com/antalandra/Advisify/blob/master/dist/img/likedadvice-likespanellist.PNG?raw=true)
 
@@ -68,7 +68,7 @@ Every liked advice item is shown in the panel when hovered. The liked items are 
 The advice slip selected and shown in the container can be copied to clipboard by using the corresponding icon underneath the text.
 
 ### Export/Download (implementation in progress)
-The advice slip can be downloaded as a png using HTML2Canvas and FileSaver libaries which generate an image containing the relevant advice slip when clicking the export button.
+The advice slip can be downloaded as a png using HTML2Canvas and FileSaver libraries which generate an image containing the relevant advice slip when clicking the export button.
 
 
 ## Authors
