@@ -29,7 +29,7 @@ Webpack is used to bundle all files together to allow for usable code in the bro
 ## Features
 
 ### Search query through search bar
-The search bar is used to make one word queries. The API request is made in the back end and the results are returned in a list form in the container.
+The search bar takes one word queries. The API request is made in the back end and the results are returned in a list form in the container.
 
 While the data is being retrieved from the API, the loader is shown in the container.
 
