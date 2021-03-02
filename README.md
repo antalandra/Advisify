@@ -4,7 +4,7 @@ Advisify is a fun and personal Javascript web application hosted on node.js invo
 
 The modern interface allows a user to like, copy to clipboard, and download advice slips as png to their machine.
 
-Advisify is written in HTML, CSS and Javascript ES6 onwards to showcase the author's web development skills and is used purely for reference purposes. 
+Advisify is written in HTML, CSS and Javascript to showcase the author's web development skills and is used purely for reference purposes. 
 
 ![Homepage](https://github.com/antalandra/Advisify/blob/master/dist/img/homepage.PNG?raw=true)
 
